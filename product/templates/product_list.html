@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Product List</h1>
+    <table class="table table-striped">
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Fullname</th>
+            <th>Contact1</th>
+            <th>Contact2</th>
+            <th>Address</th>
+            <th>Shipping Address</th>
+            <th>Status</th>
+            <th>Image</th>
+            <th>Action</th>
+        </tr>
+        {% for product in products %}
+            <tr>
+                <td><a href="{% url 'product:edit_product' product.id %}">{{ product.name }}</a></td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.fullname }}</td>
+                <td>{{ product.contact1 }}</td>
+                <td>{{ product.contact2 }}</td>
+                <td>{{ product.address }}</td>
+                <td>{{ product.shipping_address }}</td>
+                <td>{{ product.status }}</td>
+                <td>
+                    {% if product.image %}
+                        <img width="40" height="40" src="{{ product.image.url }}" alt="..." />
+                    {% else %}
+                        <span>Image not uploaded.</span>
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{% url 'product:delete_product' product.id %}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock content %}
