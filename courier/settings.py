@@ -124,3 +124,12 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "staticfiles",]
 
 MEDIA_URL = '/media/'
+
+LOGIN_REDIRECT_URL = "product:product_list"
+LOGOUT_REDIRECT_URL = "user:login"
+
+EMAIL_HOST="smtp.gmail.com"
+EMAIL_PORT=587
+EMAIL_HOST_USER="ytddash@gmail.com"
+EMAIL_HOST_PASSWORD="ytddash_123"
+EMAIL_USE_TLS=True
