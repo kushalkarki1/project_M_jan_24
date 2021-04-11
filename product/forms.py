@@ -10,7 +10,7 @@ class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = "__all__"
-        exclude = ("status", "remarks", )
+        exclude = ("status", "remarks", "user", )
     # def __init__(self, *args, **kwargs):
     #     super().__init__(*args, **kwargs)
     #     for i in self.visible_fields():

@@ -7,5 +7,5 @@ class WeightAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ("name", "price", )
+    list_display = ("name", "price", "created", "modified", )
     list_filter = ("status", )

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -125,11 +126,14 @@ STATICFILES_DIRS = [BASE_DIR / "staticfiles",]
 
 MEDIA_URL = '/media/'
 
+LOGIN_URL = "user:login"
 LOGIN_REDIRECT_URL = "product:product_list"
 LOGOUT_REDIRECT_URL = "user:login"
 
-EMAIL_HOST="smtp.gmail.com"
-EMAIL_PORT=587
-EMAIL_HOST_USER="ytddash@gmail.com"
-EMAIL_HOST_PASSWORD="ytddash_123"
-EMAIL_USE_TLS=True
+EMAIL_HOST= config("EMAIL_HOST")
+EMAIL_PORT= config("EMAIL_PORT")
+EMAIL_HOST_USER= config("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD= config("EMAIL_HOST_PASSWORD")
+EMAIL_USE_TLS= config("EMAIL_USE_TLS", cast=bool)
+
+# pip install -r requirements.txt
